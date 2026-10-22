@@ -1,10 +1,11 @@
 BEGIN:VCARD
 VERSION:3.0
-PRODID:-//Proclaim Agency//Yuri Card//EN
+PRODID:-//Proclaim Agency//Imperial Decking Card//EN
 FN:Yuri
 N:;Yuri;;;
+ORG:Imperial Decking
 TEL;TYPE=CELL,VOICE:+14159965183
 ADR;TYPE=WORK:;;;Sonora;CA;;USA
 NOTE:Redwood fences\, gates\, decks\, pergolas & patio covers\, arbors & trellises\, Orthodox chapels\, bell shelters & shrines. Based in Sonora\, CA. Works in Sonora & Tuolumne County\, Calaveras County\, the Bay Area\, and as far as Chicago for the right project. Phone and WhatsApp.
-URL:https://sendmespace.vercel.app
+URL:https://imperialdecking.vercel.app
 END:VCARD

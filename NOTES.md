@@ -14,8 +14,8 @@ Nothing on this card is invented. Where a fact is missing, the section or field 
   `src/components/Identity.tsx` (h1), `public/Yuri.vcf` (`FN:`, `N:`, and rename the file +
   the `href`/`download` in `src/components/QuickActions.tsx`), `index.html` (title, og:title),
   `src/App.tsx` (share title/text), `src/components/Footer.tsx`, `public/og-image.png`.
-- **Business name** — none confirmed. If one exists: `Identity.tsx` (line under the name),
-  `Yuri.vcf` (`ORG:`), `index.html`, `Footer.tsx`.
+- **Business name** — confirmed: **Imperial Decking** (h1 in `Identity.tsx`, `ORG:` in
+  `Yuri.vcf`, `index.html`, `Footer.tsx`, share text in `App.tsx`). Yuri stays as the person.
 - **Email** — unknown, so there is no Email tile and no `EMAIL:` in the vCard. Add a tile in
   `src/components/QuickActions.tsx` (the 4-column grid will need 5 columns or a swap) and
   `EMAIL:` in `public/Yuri.vcf`.
@@ -58,7 +58,7 @@ callback promise, pricing. Those template components were deleted, not hidden.
   apple-touch-icon were regenerated from the portrait.
 
 ### Deployment
-Live at https://sendmespace.vercel.app (Vercel project `yuri-card`, auto-deploys from `main`
+Live at https://imperialdecking.vercel.app (Vercel project `yuri-card`, auto-deploys from `main`
 on github.com/Robo8852/yuri-card). Update `src/lib/site.ts` and `index.html` if a custom
 domain is attached.
 
