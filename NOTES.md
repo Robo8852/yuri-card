@@ -1,21 +1,33 @@
 # Project Notes / TODOs
 
-## Yuri — redwood outdoor structures, Sonora, CA
+## George (Imperial Decking) — redwood outdoor structures, Sonora, CA
 
 Cloned from the David Whitmire template (`~/clients/david-whitmire-card`) and re-skinned.
 Content sources: `~/clients/yuri/HANDOFF.md` (confirmed facts, approved copy, positioning)
 and the polished job photos in `~/Downloads/Paulina-Trockman/` (NN-polished.webp).
 Nothing on this card is invented. Where a fact is missing, the section or field is left out.
 
-### Open TODOs (need answers from Yuri, via Leo or Paulina Trockman)
+### Confirmed updates (2026-10-22 — ready for Fable build pass)
+- **Name:** He wants to go by **George** (not Yuri). Update `Identity.tsx`, `PrimaryCtas.tsx` ("Hi George..."), `ClosingCta.tsx` ("Call George"), `Hero.tsx` alt text, `public/Imperial-Decking.vcf`, `index.html`, `App.tsx`, and `public/og-image.png`.
+- **Business name:** **Imperial Decking**.
+- **Experience:** **1991–2026 (35 years of hands-on experience)**. Phrase as **"Building since 1991 · 35 years of hands-on experience"** (put the years on George's craft, NOT "In business since 1991" or "Est. 1991", since he hasn't had a brick-and-mortar business).
+
+### Done 2026-10-22 (Fable pass)
+- "Yuri" → "George" everywhere user-facing (Identity, Footer, ClosingCta, share text, meta
+  description, SMS/WhatsApp prefill, alt text, vCard FN/N, og-image).
+- Experience line added under the subtitle in `Identity.tsx`:
+  "Building since 1991 · 35 years of hands-on experience".
+- Portrait renamed `public/yuri.webp` → `public/imperial-decking.webp`.
+
+### Open TODOs (need answers from George, via Leo or Paulina Trockman)
 
 - **Full name** (spelling and how he wants it shown). WhatsApp handle reads
-  "~Yuiiskhovrebov"; unconfirmed, so the card shows "Yuri" only. When known, update
+  "~Yuiiskhovrebov"; unconfirmed, so the card shows "George" only. When known, update
   `src/components/Identity.tsx` (h1), `public/Imperial-Decking.vcf` (`FN:`, `N:`, and rename the file +
   the `href`/`download` in `src/components/QuickActions.tsx`), `index.html` (title, og:title),
   `src/App.tsx` (share title/text), `src/components/Footer.tsx`, `public/og-image.png`.
 - **Business name** — confirmed: **Imperial Decking** (h1 in `Identity.tsx`, `ORG:` in
-  `Imperial-Decking.vcf`, `index.html`, `Footer.tsx`, share text in `App.tsx`). Yuri stays as the person.
+  `Imperial-Decking.vcf`, `index.html`, `Footer.tsx`, share text in `App.tsx`). George is the person.
 - **Email** — unknown, so there is no Email tile and no `EMAIL:` in the vCard. Add a tile in
   `src/components/QuickActions.tsx` (the 4-column grid will need 5 columns or a swap) and
   `EMAIL:` in `public/Imperial-Decking.vcf`.
@@ -27,15 +39,15 @@ Nothing on this card is invented. Where a fact is missing, the section or field 
   Single source: `src/lib/site.ts` (`PHONE_E164`, `PHONE_DISPLAY`, `WHATSAPP_URL`), plus
   `public/Imperial-Decking.vcf` and the og image text.
 - **Portrait consent** — the avatar, og image, favicon and apple-touch-icon use photo 13
-  (Yuri cutting deck boards). Confirm Yuri agrees to his face being on the card. If not,
-  swap `public/yuri.webp` (avatar), regenerate `public/og-image.png` without the portrait,
+  (George cutting deck boards). Confirm George agrees to his face being on the card. If not,
+  swap `public/imperial-decking.webp` (avatar), regenerate `public/og-image.png` without the portrait,
   and regenerate `public/favicon.ico` + `public/apple-touch-icon.png`.
 - **Photo color** — the polished set's earlier, punchier color pass was overwritten; Leo may
   prefer it. If a new pass lands, recopy into `public/work/`, regenerate `public/work/thumb/`
-  (720px max, q78), `public/hero.webp` (photo 01, 2.2:1 crop) and `public/yuri.webp`.
+  (720px max, q78), `public/hero.webp` (photo 01, 2.2:1 crop) and `public/imperial-decking.webp`.
 
 ### Deliberately left out (no real source)
-Testimonials, socials, resources/blog links, years in trade, license/insurance, guarantees,
+Testimonials, socials, resources/blog links, license/insurance, guarantees,
 callback promise, pricing. Those template components were deleted, not hidden.
 
 ### Build details
@@ -45,13 +57,13 @@ callback promise, pricing. Those template components were deleted, not hidden.
 - Type: Public Sans (Google Fonts, 400/500/600/700). Body copy at Regular (400) per the
   cards handoff's font-weight lesson.
 - Hero: photo 01 (hillside pergola), `public/hero.webp`.
-- Avatar: `public/yuri.webp`, a square crop of photo 13 centred on his face (checked at 360px).
+- Avatar: `public/imperial-decking.webp`, a square crop of photo 13 centred on his face (checked at 360px).
 - Gallery: 12 job photos (01 is the hero, 03 is the same deck as 07, 13 is the portrait;
   those are not in the grid). Captions are the type of work only; locations only where the
   handoff confirms them (07 Chicago area; 10 and 14 Saint Catherine's Monastery, Sonora).
   Grid loads `public/work/thumb/NN.webp`; the lightbox loads `public/work/NN.webp`.
 - Primary CTA "Send me a photo of your space" opens SMS with the prefilled line
-  "Hi Yuri, here's a photo of my space:" (per-platform `&body=` / `?body=`), with a
+  "Hi George, here's a photo of my space:" (per-platform `&body=` / `?body=`), with a
   WhatsApp link (`wa.me/14159965183?text=...`) under it, then the approved 3-step
   "how to start" copy.
 - og:image is a 1200x630 PNG (`public/og-image.png`) at an absolute URL; favicon and

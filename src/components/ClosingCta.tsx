@@ -9,7 +9,7 @@ export function ClosingCta() {
       <Button asChild variant="brand" size="brand">
         <a href={`tel:${PHONE_E164}`}>
           <Phone className="mr-2 size-[18px]" strokeWidth={2} />
-          Call Yuri · {PHONE_DISPLAY}
+          Call George · {PHONE_DISPLAY}
         </a>
       </Button>
     </section>

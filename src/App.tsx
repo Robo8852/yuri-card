@@ -20,7 +20,7 @@ async function shareCard(showToast: (message: string) => void) {
   const url = SITE_URL
   const data = {
     title: 'Imperial Decking — Redwood fences, gates, decks & pergolas',
-    text: 'Imperial Decking (Yuri) builds redwood fences, gates, decks and pergolas. Based in Sonora, CA.',
+    text: 'Imperial Decking (George) builds redwood fences, gates, decks and pergolas. Based in Sonora, CA.',
     url,
   }
   if (navigator.share) {

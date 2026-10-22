@@ -8,7 +8,7 @@ export function Hero() {
       <img
         className="block aspect-[2.2/1] w-full object-cover"
         src="/hero.webp"
-        alt="Redwood pergola on a hillside, built by Yuri"
+        alt="Redwood pergola on a hillside, built by George"
         fetchPriority="high"
       />
     </div>

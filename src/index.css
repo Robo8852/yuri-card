@@ -47,7 +47,7 @@
 :root {
     /* Dark-only page: the original card ships a single dark palette, so the
        tokens live directly on :root (html carries class="dark" for shadcn). */
-    /* Yuri: dark slate ground, one steel-blue accent. Deliberately NOT red/brown —
+    /* George: dark slate ground, one steel-blue accent. Deliberately NOT red/brown —
        Leo rejected the redwood palette; the photos carry the warmth. Primary is light
        enough that buttons take dark text (contrast > 7:1), and blue text on the card
        reads at ~8:1. */
