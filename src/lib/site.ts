@@ -1,6 +1,6 @@
 // Canonical public URL of the card. Used by the Share button so shared links never
 // leak per-deployment Vercel URLs. Update when a custom domain is attached.
-export const SITE_URL = "https://yuri-card.vercel.app"
+export const SITE_URL = "https://sendmespace.vercel.app"
 
 // Confirmed number (from Yuri's WhatsApp contact). Whether this is the number he wants
 // published is still a TODO, see NOTES.md.

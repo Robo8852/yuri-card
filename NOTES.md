@@ -58,7 +58,7 @@ callback promise, pricing. Those template components were deleted, not hidden.
   apple-touch-icon were regenerated from the portrait.
 
 ### Deployment
-Live at https://yuri-card.vercel.app (Vercel project `yuri-card`, auto-deploys from `main`
+Live at https://sendmespace.vercel.app (Vercel project `yuri-card`, auto-deploys from `main`
 on github.com/Robo8852/yuri-card). Update `src/lib/site.ts` and `index.html` if a custom
 domain is attached.
 
