@@ -23,7 +23,7 @@ export function QuickActions({ onSaveContact }: { onSaveContact: () => void }) {
     { label: "WhatsApp", href: WHATSAPP_URL, Icon: MessageCircle, external: true },
     /* Static .vcf served next to the page (iOS Safari cannot download Blob vCards —
        NEVER convert this to a Blob). No preventDefault: href + download do the work. */
-    { label: "Save contact", href: "/Yuri.vcf", Icon: UserPlus, download: "Yuri.vcf", onClick: onSaveContact },
+    { label: "Save contact", href: "/Imperial-Decking.vcf", Icon: UserPlus, download: "Imperial-Decking.vcf", onClick: onSaveContact },
   ]
 
   return (

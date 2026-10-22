@@ -26,7 +26,7 @@ npm run preview   # serve the production build
 
 ## Notes
 
-- **vCard**: `public/Yuri.vcf` is a real static file linked by a plain anchor with
+- **vCard**: `public/Imperial-Decking.vcf` is a real static file linked by a plain anchor with
   `download`. iOS Safari cannot download Blob vCards; never convert it.
 - Phone and site URL live in one place: `src/lib/site.ts`.
 - Static assets are in `public/` (`hero.webp`, `yuri.webp`, `work/`, `og-image.png`).

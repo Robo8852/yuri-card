@@ -11,21 +11,21 @@ Nothing on this card is invented. Where a fact is missing, the section or field 
 
 - **Full name** (spelling and how he wants it shown). WhatsApp handle reads
   "~Yuiiskhovrebov"; unconfirmed, so the card shows "Yuri" only. When known, update
-  `src/components/Identity.tsx` (h1), `public/Yuri.vcf` (`FN:`, `N:`, and rename the file +
+  `src/components/Identity.tsx` (h1), `public/Imperial-Decking.vcf` (`FN:`, `N:`, and rename the file +
   the `href`/`download` in `src/components/QuickActions.tsx`), `index.html` (title, og:title),
   `src/App.tsx` (share title/text), `src/components/Footer.tsx`, `public/og-image.png`.
 - **Business name** — confirmed: **Imperial Decking** (h1 in `Identity.tsx`, `ORG:` in
-  `Yuri.vcf`, `index.html`, `Footer.tsx`, share text in `App.tsx`). Yuri stays as the person.
+  `Imperial-Decking.vcf`, `index.html`, `Footer.tsx`, share text in `App.tsx`). Yuri stays as the person.
 - **Email** — unknown, so there is no Email tile and no `EMAIL:` in the vCard. Add a tile in
   `src/components/QuickActions.tsx` (the 4-column grid will need 5 columns or a swap) and
-  `EMAIL:` in `public/Yuri.vcf`.
+  `EMAIL:` in `public/Imperial-Decking.vcf`.
 - **Domain / website** — none. No website tile. The vCard `URL:` points at this card. If a
   domain is bought: `src/lib/site.ts` (`SITE_URL`), `index.html` (og:url, og:image),
-  `public/Yuri.vcf` (`URL:`).
+  `public/Imperial-Decking.vcf` (`URL:`).
 - **Is (415) 996-5183 the number to publish?** It came from a WhatsApp contact screenshot.
   It drives Call, Text, WhatsApp, the photo CTA, the closing Call button and the vCard.
   Single source: `src/lib/site.ts` (`PHONE_E164`, `PHONE_DISPLAY`, `WHATSAPP_URL`), plus
-  `public/Yuri.vcf` and the og image text.
+  `public/Imperial-Decking.vcf` and the og image text.
 - **Portrait consent** — the avatar, og image, favicon and apple-touch-icon use photo 13
   (Yuri cutting deck boards). Confirm Yuri agrees to his face being on the card. If not,
   swap `public/yuri.webp` (avatar), regenerate `public/og-image.png` without the portrait,
