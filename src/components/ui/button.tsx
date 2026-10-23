@@ -41,7 +41,7 @@ const buttonVariants = cva(
           "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
         "icon-lg": "size-9",
         brand:
-          "h-auto w-full rounded-sm p-[15px] text-[0.82rem] leading-[1.4] font-bold tracking-[0.1em] uppercase whitespace-normal duration-200 ease-card hover:-translate-y-px active:scale-[.97]",
+          "h-auto w-full rounded-[18px] px-5 py-[17px] text-[1.02rem] leading-[1.35] font-bold tracking-[-0.01em] whitespace-normal duration-200 ease-card hover:-translate-y-px active:scale-[.97]",
       },
     },
     defaultVariants: {

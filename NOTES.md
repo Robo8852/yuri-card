@@ -51,11 +51,13 @@ Testimonials, socials, resources/blog links, license/insurance, guarantees,
 callback promise, pricing. Those template components were deleted, not hidden.
 
 ### Build details
-- Palette: dark slate ground, one steel-blue accent (`src/index.css` `:root`). NOT
-  red/brown: Leo rejected the redwood-sampled palette. Buttons use dark text on the light
-  blue for contrast.
-- Type: Public Sans (Google Fonts, 400/500/600/700). Body copy at Regular (400) per the
-  cards handoff's font-weight lesson.
+- Palette (2026-10-22, matches the Forged Iron homepage at Leo's request; replaced the
+  steel blue): warm charcoal #171513, cream #F2ECE3, burnt orange. `--primary` #F0A35C is
+  for text and icons; solid buttons are `--brand` #C2581F → `--primary-deep` #A9481A with
+  white text (`src/index.css` `:root`).
+- Type: Schibsted Grotesk (body 400, headings 800) + JetBrains Mono for small labels, same
+  as Forged Iron. Logo image (`public/logo-imperial-decking.webp`) is the h1.
+- og:image regenerated in the same style; source `tools/og/og.html` (render at 1200x630).
 - Hero: photo 01 (hillside pergola), `public/hero.webp`.
 - Avatar: `public/imperial-decking.webp`, a square crop of photo 13 centred on his face (checked at 360px).
 - Gallery: 12 job photos (01 is the hero, 03 is the same deck as 07, 13 is the portrait;
@@ -81,3 +83,15 @@ Proclaim Agency URL is decided:
 1. Edit `src/components/Footer.tsx` — wrap the agency name in an `<a>` with
    `target="_blank" rel="noopener"` and the classes `font-semibold text-primary no-underline`.
 2. Remove this section from the notes.
+
+### Homepage directions from Claude Design (2026-10-22)
+Claude Design project `01fd43b3-94cf-46e1-b570-3ee67238ce06` ("Imperial Decking homepage
+directions") has four homepage variations. All four are ported as standalone static pages in
+`public/homepages/` (served at `/homepages/`, with a picker at `/homepages/index.html`):
+A Golden Hour, B Editorial, C Bento, D Forged Iron. They sit beside the card app and do not
+touch it. Images reuse `public/work/NN.webp`; the hero is `public/homepages/hero-deck.webp`
+(from `public/generated/hero-deck.png`). Pages carry `noindex` until one is chosen.
+Port changes vs. the design: hover styles became CSS classes, D's sticky text pill is always
+on, and phone grids drop `span 2` below 600px (it caused sideways scroll on C).
+
+Next session: start with `HANDOFF-homepages.md` (Forged Iron state, open feedback, animation plan).

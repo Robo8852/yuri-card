@@ -37,8 +37,8 @@ export function PrimaryCtas({ onShare }: { onShare: () => void }) {
             <>If it’s a fit, I come out, measure, and give you a price.</>,
           ].map((step, i) => (
             <li key={i} className="flex gap-3">
-              <span className="mt-[1px] grid size-6 shrink-0 place-items-center rounded-full border border-ring text-[0.75rem] font-semibold text-primary">
-                {i + 1}
+              <span className="mt-[3px] shrink-0 font-mono text-[0.72rem] font-medium tracking-[0.08em] text-primary">
+                {String(i + 1).padStart(2, "0")}
               </span>
               <span>{step}</span>
             </li>

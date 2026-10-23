@@ -4,8 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-sans: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-serif: 'Public Sans', sans-serif;
+    --font-sans: 'Schibsted Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-serif: 'Schibsted Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
     --font-heading: var(--font-sans);
     --color-ring: var(--ring);
     --color-input: var(--input);
@@ -38,7 +39,7 @@
     --shadow-xs-dark: 0 2px 6px hsl(0 0% 0% / .5);
     --shadow-card: 0 10px 30px hsl(0 0% 0% / .55);
     --shadow-phone: 0 0 80px hsl(0 0% 0% / .6);
-    --shadow-brand: 0 6px 20px color-mix(in srgb, var(--primary) 25%, transparent);
+    --shadow-brand: 0 0 0 5px color-mix(in srgb, var(--brand) 25%, transparent);
     /* Motion + layout */
     --ease-card: cubic-bezier(.2, .8, .2, 1);
     --spacing-gutter: 22px;
@@ -47,33 +48,34 @@
 :root {
     /* Dark-only page: the original card ships a single dark palette, so the
        tokens live directly on :root (html carries class="dark" for shadcn). */
-    /* George: dark slate ground, one steel-blue accent. Deliberately NOT red/brown —
-       Leo rejected the redwood palette; the photos carry the warmth. Primary is light
-       enough that buttons take dark text (contrast > 7:1), and blue text on the card
-       reads at ~8:1. */
-    --background: hsl(212 18% 6%);            /* #0d1116 */
-    --foreground: hsl(210 25% 95%);           /* #eff2f6 */
-    --card: hsl(212 16% 10%);                 /* #151a20 */
+    /* Forged Iron palette (matches public/homepages/d-forged-iron.html, Leo 2026-10-22;
+       replaces the earlier steel-blue). Warm charcoal ground, cream text, one burnt
+       orange. --primary is the light orange for text and icons (~8:1 on the card);
+       solid buttons use --brand → --primary-deep with white text (~5:1). */
+    --background: #0f0e0d;
+    --foreground: #F2ECE3;
+    --card: #171513;
     --card-foreground: var(--foreground);
-    --card-elevated: hsl(212 15% 14%);        /* #1e242b */
+    --card-elevated: #221F1C;
     --popover: var(--card-elevated);
     --popover-foreground: var(--foreground);
-    --primary: hsl(206 78% 68%);              /* #6fb6ee */
-    --primary-deep: hsl(208 66% 56%);         /* #4a95d8 */
-    --primary-foreground: hsl(212 40% 8%);    /* #0c1520 */
+    --primary: #F0A35C;
+    --brand: #C2581F;
+    --primary-deep: #A9481A;
+    --primary-foreground: #ffffff;
     --secondary: var(--card-elevated);
     --secondary-foreground: var(--foreground);
     --muted: var(--card-elevated);
-    --muted-foreground: hsl(212 12% 70%);     /* #a9b1bb */
+    --muted-foreground: #A79E94;
     --accent: var(--card-elevated);
     --accent-foreground: var(--foreground);
     --destructive: oklch(0.704 0.191 22.216);
-    --border: hsl(0 0% 100% / .08);
+    --border: rgb(242 236 227 / .1);
     --input: var(--border);
     /* Semi-transparent on purpose — focus rings are 3px box-shadows of this,
        NOT Tailwind ring utilities with an opaque color. */
     --ring: color-mix(in srgb, var(--primary) 50%, transparent);
-    --radius: 1rem;
+    --radius: 1.25rem;
     --transition: 200ms cubic-bezier(.2, .8, .2, 1);
 }
 
@@ -125,14 +127,14 @@
   .avatar-ring {
     background: conic-gradient(from 210deg,
       var(--primary),
-      color-mix(in srgb, var(--primary) 55%, var(--primary-foreground)),
+      var(--brand),
       var(--primary-deep),
       var(--primary));
   }
 
   /* Unified primary treatment (Connect tile + solid buttons) */
   .brand-gradient {
-    background: linear-gradient(160deg, var(--primary), var(--primary-deep));
+    background: linear-gradient(160deg, var(--brand), var(--primary-deep));
   }
 
   /* Section head underline */
