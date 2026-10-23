@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imperial Decking · Forged Iron · Pick one</title>
+<meta name="description" content="Imperial Decking (George) builds custom redwood fences, gates, decks, pergolas and arbors, measured and built on site. Based in Sonora, California. Text or WhatsApp (415) 996-5183.">
+<meta name="theme-color" content="#171513">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" as="image" href="hero-deck.webp">
+<script>
+// .js: scripts run (fixed nav). .js-anim: motion allowed. Hidden start states live under .js-anim only.
+document.documentElement.classList.add('js');
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js-anim');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,700..800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#171513;color:#F2ECE3;font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}a{color:#F0A35C;text-decoration:none}a:hover{color:#FFC48C}img{display:block}</style>
+<style>
+:root{
+  --t-display:clamp(36px,4.6vw,68px);   /* h1 is a full sentence, so sentence-sized, not wordmark-sized */
+  --t-stat:clamp(30px,3.4vw,50px);      /* proof numbers: under the headline */
+  --t-h2:clamp(28px,3.2vw,46px);        /* section headlines */
+  --t-h3:clamp(22px,2.2vw,30px);        /* statements inside cards */
+  --t-title:22px;                        /* card and list titles */
+  --t-lead:clamp(18px,1.35vw,20px);     /* intro paragraphs and steps */
+  --t-body:17px;
+  --t-ui:15px;                           /* nav, chips, buttons */
+  --t-label:12px;                        /* mono eyebrows */
+}
+html{scroll-behavior:smooth}
+.hv{transition:background-color .18s ease,color .18s ease,transform .22s ease,box-shadow .22s ease}
+.hv0:hover{background:rgba(242,236,227,.1) !important;color:#F2ECE3 !important}
+.hv1:hover{background:#D66A2E !important;color:#fff !important}
+.hv2:hover{background:#2B2724 !important;color:#fff !important}
+.hv3:hover{background:rgba(255,255,255,.24) !important;color:#fff !important}
+.hv4:hover{background:#D66A2E !important;color:#fff !important}
+/* On a single-column phone grid, "span 2" adds a phantom column and causes sideways scroll */
+@media (max-width:600px){[style*="grid-column:span 2"]{grid-column:auto !important}}
+/* Logo as large as the nav allows on one line (logo is 6.225:1). Below 760px: logo + WhatsApp only */
+.brand img{height:min(56px,calc((92vw - 384px) / 6.25)) !important}
+@media (max-width:760px){.nav-link{display:none}.brand img{height:min(48px,calc((100vw - 174px) / 6.25)) !important}}
+/* Stats: 2x2 on phones, one row of 4 from 720px */
+.stats{grid-template-columns:repeat(2,1fr)}
+.stats>div{padding:24px 0 28px 20px !important;border-left:1px solid rgba(242,236,227,.16) !important}
+.stats>div:nth-child(odd){padding-left:0 !important;border-left:0 !important}
+.stats>div:nth-child(n+3){border-top:1px solid rgba(242,236,227,.16)}
+@media (min-width:720px){
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .stats>div{padding:28px 24px 36px !important;border-top:0 !important}
+  .stats>div:nth-child(odd){border-left:1px solid rgba(242,236,227,.16) !important;padding-left:24px !important}
+  .stats>div:first-child{border-left:0 !important;padding-left:0 !important}
+}
+/* Sticky text pill: hidden while the hero button is on screen */
+#sticky-cta{transition:opacity .25s ease,transform .25s ease}
+#sticky-cta.is-hidden{opacity:0;pointer-events:none;transform:translate(-50%,12px) !important}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hv{transition:none}}
+
+/* ---------- Motion ---------- */
+:root{--ease-out:cubic-bezier(.2,.7,.2,1);--ease-io:cubic-bezier(.65,0,.35,1)}
+
+/* Nav: fixed and transparent at the top, charcoal once the page scrolls */
+.js #site-nav{position:fixed !important;top:0;left:0;right:0;z-index:30;transition:background-color .35s ease,padding .35s ease,border-color .35s ease,backdrop-filter .35s ease;border-bottom:1px solid transparent}
+.js #site-nav.is-scrolled{background:rgba(23,21,19,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom-color:rgba(242,236,227,.1);padding-top:14px !important;padding-bottom:14px !important}
+.js .hero-body{padding-top:112px !important}
+
+/* Hero image settles from 1.08 to 1 */
+@keyframes hero-settle{from{transform:scale(1.08)}to{transform:none}}
+.js-anim .hero-img{animation:hero-settle 2.4s var(--ease-out) both}
+
+/* Headline: hidden until split into lines, then each line slides up out of a mask */
+.js-anim #hero-h1{opacity:0}
+.js-anim #hero-h1.is-split{opacity:1}
+#hero-h1 .line{display:block;overflow:hidden;white-space:nowrap;padding:0 .12em .1em 0;margin-bottom:-.1em}
+#hero-h1 .line-in{display:block;transform:translateY(110%);transition:transform 1s var(--ease-out)}
+#hero-h1.in .line-in{transform:none}
+
+/* Generic reveal: fade + rise, staggered among siblings (delay set in JS) */
+.js-anim .rv{opacity:0;transform:translateY(var(--rv-y,28px));transition:opacity .8s var(--ease-out),transform .9s var(--ease-out)}
+.js-anim .rv.in{opacity:1;transform:none}
+.js-anim .rv-soft{--rv-y:16px}
+
+/* Craftsman photo unmasks bottom to top (observe the wrapper: a fully clipped image never counts as visible) */
+.js-anim .unmask{clip-path:inset(100% 0 0 0 round 32px);transition:clip-path 1.4s var(--ease-io)}
+.js-anim .unmask-wrap.in .unmask{clip-path:inset(0 round 32px)}
+
+/* Work photos settle from 1.06 to 1 inside their frames */
+.js-anim .zoom-in{transform:scale(1.06);transition:transform 1.6s var(--ease-out)}
+.js-anim .in .zoom-in{transform:none}
+.work-frame{position:relative;overflow:hidden;border-radius:28px;min-height:220px}
+.work-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Services: parallax layer inside a frame, hover zoom on the photo */
+.sv-frame{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:20px}
+.sv-par{position:absolute;top:0;bottom:0;left:-8%;right:-8%;will-change:transform}
+.sv-par img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease-out)}
+.sv-card:hover .sv-par img{transform:scale(1.05)}
+#sv-track{cursor:grab;scrollbar-width:thin}
+#sv-track.is-dragging{cursor:grabbing;scroll-snap-type:none !important;user-select:none}
+#sv-track.is-dragging img{pointer-events:none}
+@media (prefers-reduced-motion:reduce){.sv-par img{transition:none}.sv-card:hover .sv-par img{transform:none}}
+</style>
+</head>
+<body>
+<div style="min-height:100vh">
+  <header style="position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden">
+    <img class="hero-img" src="hero-deck.webp" alt="Redwood pergola over a flagstone patio at golden hour" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,21,19,.6) 0%,rgba(23,21,19,.35) 30%,rgba(23,21,19,.85) 72%,#171513 100%)"></div>
+    <nav id="site-nav" style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px clamp(20px,4vw,60px);flex-wrap:wrap">
+      <a href="#" class="brand" aria-label="Imperial Decking, home" style="display:block;line-height:0"><img src="logo-imperial-decking.webp" alt="Imperial Decking · Custom outdoor structures" width="747" height="120" style="height:56px;width:auto"></a>
+      <div style="display:flex;align-items:center;gap:24px;font-size:15px;font-weight:500;flex-wrap:wrap">
+        <a class="nav-link" href="#how" style="color:rgba(242,236,227,.8)">How I work</a>
+        <a class="nav-link" href="#services" style="color:rgba(242,236,227,.8)">Services</a>
+        <a class="nav-link" href="#work" style="color:rgba(242,236,227,.8)">Work</a>
+        <a href="https://wa.me/14159965183" style="padding:10px 18px;border-radius:999px;border:1px solid rgba(242,236,227,.3);color:#F2ECE3;font-weight:600" class="hv hv0">WhatsApp</a>
+      </div>
+    </nav>
+    <div class="hero-body" style="position:relative;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:40px clamp(20px,4vw,60px) 0">
+      <h1 id="hero-h1" style="font-weight:800;font-size:var(--t-display);line-height:1.02;letter-spacing:-.03em;margin:0;max-width:20ch;text-wrap:balance">A redwood gate, fence or deck that still looks right in <span style="color:#F0A35C;font-style:italic;font-weight:800">twenty years.</span></h1>
+      <div class="rv" data-delay="550" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:32px;align-items:end;margin-top:32px">
+        <p style="font-size:var(--t-lead);line-height:1.55;color:rgba(242,236,227,.82);margin:0;max-width:580px">One person, from first call to last board. Based in Sonora.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;justify-self:end">
+          <a id="hero-cta" href="sms:+14159965183" style="background:#C2581F;color:#fff;padding:20px 32px;border-radius:18px;font-weight:700;font-size:17px;box-shadow:0 0 0 6px rgba(194,88,31,.25)" class="hv hv1">Send me a photo of your space →</a>
+        </div>
+      </div>
+      <div class="stats rv" data-delay="750" style="display:grid;margin-top:56px;border-top:1px solid rgba(242,236,227,.16)">
+        <div style="padding:28px 24px 36px 0"><div style="font-weight:800;font-size:var(--t-stat);letter-spacing:-.04em;line-height:.9" data-count="1600">1,600</div><div style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);text-transform:uppercase;letter-spacing:.1em;color:rgba(242,236,227,.6);margin-top:12px">Fences</div></div>
+        <div style="padding:28px 24px 36px;border-left:1px solid rgba(242,236,227,.16)"><div style="font-weight:800;font-size:var(--t-stat);letter-spacing:-.04em;line-height:.9" data-count="600">600</div><div style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);text-transform:uppercase;letter-spacing:.1em;color:rgba(242,236,227,.6);margin-top:12px">Decks</div></div>
+        <div style="padding:28px 24px 36px;border-left:1px solid rgba(242,236,227,.16)"><div style="font-weight:800;font-size:var(--t-stat);letter-spacing:-.04em;line-height:.9" data-count="300">300</div><div style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);text-transform:uppercase;letter-spacing:.1em;color:rgba(242,236,227,.6);margin-top:12px">Gazebos</div></div>
+        <div style="padding:28px 24px 36px;border-left:1px solid rgba(242,236,227,.16)"><div style="font-weight:800;font-size:var(--t-stat);letter-spacing:-.04em;line-height:.9;color:#F0A35C">1991</div><div style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);text-transform:uppercase;letter-spacing:.1em;color:rgba(242,236,227,.6);margin-top:12px">Building since</div></div>
+      </div>
+    </div>
+  </header>
+
+  <section style="padding:clamp(64px,9vw,120px) clamp(20px,4vw,60px);max-width:1360px;margin:0 auto">
+    <div style="background:#F2ECE3;color:#171513;border-radius:36px;padding:clamp(28px,5vw,64px)">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:end">
+        <h2 style="font-weight:800;font-size:var(--t-h2);letter-spacing:-.035em;line-height:1.02;margin:0">Send me a photo of your space.</h2>
+        <span style="padding:8px 16px;border-radius:999px;background:#171513;color:#F2ECE3;font-size:14px;font-weight:600">No forms, no sales visit</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-top:40px">
+        <div class="rv" style="background:#fff;border-radius:24px;padding:28px;border:1px solid #E4DACD"><div style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);letter-spacing:.12em;color:#B4501E">STEP 01</div><p style="margin:16px 0 0;font-size:var(--t-lead);line-height:1.5;font-weight:500">Text or WhatsApp a photo of the space to <a href="sms:+14159965183" style="color:#B4501E">(415) 996-5183</a> with a line about what you want.</p></div>
+        <div class="rv" style="background:#fff;border-radius:24px;padding:28px;border:1px solid #E4DACD"><div style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);letter-spacing:.12em;color:#B4501E">STEP 02</div><p style="margin:16px 0 0;font-size:var(--t-lead);line-height:1.5;font-weight:500">I call you back to talk it through.</p></div>
+        <div class="rv" style="background:#fff;border-radius:24px;padding:28px;border:1px solid #E4DACD"><div style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);letter-spacing:.12em;color:#B4501E">STEP 03</div><p style="margin:16px 0 0;font-size:var(--t-lead);line-height:1.5;font-weight:500">If it's a fit, I come out, measure, and give you a price.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="padding:0 clamp(20px,4vw,60px) clamp(64px,9vw,120px);max-width:1360px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(32px,5vw,72px);align-items:center">
+      <div class="rv rv-soft">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);letter-spacing:.12em;text-transform:uppercase;color:#F0A35C">How I work</div>
+        <h2 style="font-weight:800;font-size:var(--t-h2);letter-spacing:-.035em;line-height:1.02;margin:18px 0 0;text-wrap:balance">The person who quotes your job is the person who builds it.</h2>
+        <p style="font-size:var(--t-lead);line-height:1.6;color:rgba(242,236,227,.7);margin:26px 0 0">Most outdoor work goes like this — a salesman quotes it, a crew you've never met builds it, and the pine starts to grey and sag by the third summer.</p>
+        <div style="display:flex;flex-direction:column;margin-top:30px;border-top:1px solid rgba(242,236,227,.14)">
+          <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid rgba(242,236,227,.14)"><span style="justify-self:start;align-self:start;padding:5px 12px;border-radius:999px;background:rgba(240,163,92,.14);color:#F0A35C;font-size:13px;font-weight:700">Redwood</span><span style="font-size:17px;line-height:1.5">I build in redwood because it holds up and ages well.</span></div>
+          <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid rgba(242,236,227,.14)"><span style="justify-self:start;align-self:start;padding:5px 12px;border-radius:999px;background:rgba(120,170,135,.16);color:#9CC7A8;font-size:13px;font-weight:700">On site</span><span style="font-size:17px;line-height:1.5">I measure and build on site so it fits your ground (not a catalog drawing).</span></div>
+          <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid rgba(242,236,227,.14)"><span style="justify-self:start;align-self:start;padding:5px 12px;border-radius:999px;background:rgba(242,236,227,.1);color:#F2ECE3;font-size:13px;font-weight:700">Myself</span><span style="font-size:17px;line-height:1.5">I do the work myself.</span></div>
+        </div>
+      </div>
+      <div class="unmask-wrap" style="position:relative">
+        <img decoding="async" class="unmask" src="../work/13.webp" alt="George cutting redwood deck boards on site" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:32px">
+        <div class="rv" data-delay="900" style="position:absolute;left:-12px;bottom:28px;background:#C2581F;color:#fff;padding:16px 20px;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,.4)"><div style="font-weight:800;font-size:32px;letter-spacing:-.035em;line-height:1">35 yrs</div><div style="font-size:13px;font-weight:600;margin-top:4px">hands-on, on site</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="padding:clamp(64px,9vw,120px) 0;background:#211E1B">
+    <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,60px)">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);letter-spacing:.12em;text-transform:uppercase;color:#F0A35C">Services</div>
+      <h2 style="font-weight:800;font-size:var(--t-h2);letter-spacing:-.035em;line-height:1.02;margin:18px 0 0">What I build in redwood</h2>
+    </div>
+    <div id="sv-track" style="display:flex;gap:14px;overflow-x:auto;padding:40px clamp(20px,4vw,60px) 12px;scroll-snap-type:x mandatory">
+      <div class="sv-card rv rv-soft" style="flex:none;width:min(78vw,320px);scroll-snap-align:start;background:#2B2724;border-radius:28px;padding:10px"><div class="sv-frame"><div class="sv-par"><img loading="lazy" decoding="async" src="../work/05.webp" alt="Tall redwood fence with lattice" draggable="false"></div></div><div style="padding:18px 12px 12px;font-weight:700;font-size:var(--t-title);letter-spacing:-.02em">Fences</div></div>
+      <div class="sv-card rv rv-soft" style="flex:none;width:min(78vw,320px);scroll-snap-align:start;background:#2B2724;border-radius:28px;padding:10px"><div class="sv-frame"><div class="sv-par"><img loading="lazy" decoding="async" src="../work/08.webp" alt="Arched redwood gate" draggable="false"></div></div><div style="padding:18px 12px 12px;font-weight:700;font-size:var(--t-title);letter-spacing:-.02em">Gates</div></div>
+      <div class="sv-card rv rv-soft" style="flex:none;width:min(78vw,320px);scroll-snap-align:start;background:#2B2724;border-radius:28px;padding:10px"><div class="sv-frame"><div class="sv-par"><img loading="lazy" decoding="async" src="../work/12.webp" alt="Second-story redwood deck" draggable="false"></div></div><div style="padding:18px 12px 12px;font-weight:700;font-size:var(--t-title);letter-spacing:-.02em">Decks</div></div>
+      <div class="sv-card rv rv-soft" style="flex:none;width:min(78vw,320px);scroll-snap-align:start;background:#2B2724;border-radius:28px;padding:10px"><div class="sv-frame"><div class="sv-par"><img loading="lazy" decoding="async" src="../work/09.webp" alt="Redwood patio cover" draggable="false"></div></div><div style="padding:18px 12px 12px;font-weight:700;font-size:var(--t-title);letter-spacing:-.02em">Pergolas, gazebos &amp; patio covers</div></div>
+      <div class="sv-card rv rv-soft" style="flex:none;width:min(78vw,320px);scroll-snap-align:start;background:#2B2724;border-radius:28px;padding:10px"><div class="sv-frame"><div class="sv-par"><img loading="lazy" decoding="async" src="../work/15.webp" alt="Redwood arbor" draggable="false"></div></div><div style="padding:18px 12px 12px;font-weight:700;font-size:var(--t-title);letter-spacing:-.02em">Arbors &amp; trellises</div></div>
+      <div class="sv-card rv rv-soft" style="flex:none;width:min(78vw,320px);scroll-snap-align:start;background:#2B2724;border-radius:28px;padding:10px"><div class="sv-frame"><div class="sv-par"><img loading="lazy" decoding="async" src="../work/10.webp" alt="Bell shelter" draggable="false"></div></div><div style="padding:18px 12px 12px;font-weight:700;font-size:var(--t-title);letter-spacing:-.02em">Orthodox chapels, bell shelters &amp; shrines</div></div>
+    </div>
+  </section>
+
+  <section id="work" style="padding:clamp(64px,9vw,120px) clamp(20px,4vw,60px);max-width:1360px;margin:0 auto">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);letter-spacing:.12em;text-transform:uppercase;color:#F0A35C">Recent work</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px;margin-top:28px">
+      <div class="rv" style="position:relative;border-radius:32px;overflow:hidden;min-height:480px;grid-column:span 2;min-width:0">
+        <img loading="lazy" decoding="async" src="../work/14.webp" alt="Outdoor chapel at Saint Catherine's Monastery" class="zoom-in" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(23,21,19,.92) 0%,rgba(23,21,19,0) 60%)"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:clamp(22px,3vw,36px)"><span style="padding:6px 12px;border-radius:999px;background:rgba(242,236,227,.16);font-size:13px;font-weight:700">Sonora</span><p style="margin:14px 0 0;font-weight:700;font-size:var(--t-h3);line-height:1.15;letter-spacing:-.025em;max-width:24ch">Saint Catherine's Monastery in Sonora asked me to build their outdoor chapel and bell shelter.</p></div>
+      </div>
+      <div class="rv" style="position:relative;border-radius:32px;overflow:hidden;min-height:480px">
+        <img loading="lazy" decoding="async" src="../work/03.webp" alt="Deck outside Chicago" class="zoom-in" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(23,21,19,.92) 0%,rgba(23,21,19,0) 60%)"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:28px"><span style="padding:6px 12px;border-radius:999px;background:rgba(242,236,227,.16);font-size:13px;font-weight:700">Outside Chicago</span><p style="margin:14px 0 0;font-weight:700;font-size:var(--t-title);line-height:1.25;letter-spacing:-.02em">A family outside Chicago flew me out to build their deck.</p></div>
+      </div>
+      <div style="grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px;align-items:stretch">
+        <div class="rv" style="background:#2B2724;border-radius:28px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:20px"><span style="align-self:flex-start;padding:6px 12px;border-radius:999px;background:rgba(240,163,92,.14);color:#F0A35C;font-size:13px;font-weight:700">Bay Area</span><p style="margin:0;font-weight:700;font-size:var(--t-title);line-height:1.25;letter-spacing:-.02em">Most of the rest is Bay Area yards.</p></div>
+        <div class="work-frame rv"><img loading="lazy" decoding="async" src="../work/02.webp" alt="Bay Area redwood gate" class="zoom-in"></div>
+        <div class="work-frame rv"><img loading="lazy" decoding="async" src="../work/06.webp" alt="Bay Area redwood deck" class="zoom-in"></div>
+        <div class="work-frame rv"><img loading="lazy" decoding="async" src="../work/04.webp" alt="Bay Area redwood fence" class="zoom-in"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,4vw,60px) clamp(64px,9vw,120px);max-width:1360px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px">
+      <div class="rv rv-soft" style="background:#2E4A3B;border-radius:28px;padding:28px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);letter-spacing:.08em;text-transform:uppercase;color:#B9D6C2">Home base</span><span style="font-weight:700;font-size:var(--t-title);letter-spacing:-.02em;line-height:1.15">Sonora &amp; Tuolumne County</span></div>
+      <div class="rv rv-soft" style="background:#2B2724;border-radius:28px;padding:28px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);letter-spacing:.08em;text-transform:uppercase;color:rgba(242,236,227,.55)">Foothills</span><span style="font-weight:700;font-size:var(--t-title);letter-spacing:-.02em;line-height:1.15">Calaveras County</span></div>
+      <div class="rv rv-soft" style="background:#2B2724;border-radius:28px;padding:28px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);letter-spacing:.08em;text-transform:uppercase;color:rgba(242,236,227,.55)">Regular</span><span style="font-weight:700;font-size:var(--t-title);letter-spacing:-.02em;line-height:1.15">Bay Area</span></div>
+      <div class="rv rv-soft" style="background:transparent;border:1px dashed rgba(242,236,227,.25);border-radius:28px;padding:28px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);letter-spacing:.08em;text-transform:uppercase;color:#F0A35C">As far as Chicago</span><span style="font-weight:700;font-size:var(--t-title);letter-spacing:-.02em;line-height:1.15">Farther, for the right project</span></div>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,4vw,60px) 40px;max-width:1360px;margin:0 auto">
+    <div style="background:#C2581F;color:#fff;border-radius:36px;padding:clamp(32px,6vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:36px;align-items:end">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:var(--t-label);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8)">P.S.</div><p style="font-weight:700;font-size:var(--t-h3);line-height:1.15;letter-spacing:-.025em;margin:14px 0 0;text-wrap:pretty">If the fence is already leaning, another winter won't help it. Send the photo today and we'll figure out the rest on the phone.</p></div>
+      <div style="display:flex;flex-direction:column;gap:10px;justify-self:end;width:100%;max-width:380px">
+        <a href="sms:+14159965183" style="background:#171513;color:#fff;padding:20px 26px;border-radius:18px;font-weight:700;font-size:17px;display:flex;justify-content:space-between" class="hv hv2"><span>Text a photo</span><span>(415) 996-5183</span></a>
+        <a href="https://wa.me/14159965183" style="background:rgba(255,255,255,.16);color:#fff;padding:20px 26px;border-radius:18px;font-weight:700;font-size:17px;display:flex;justify-content:space-between" class="hv hv3"><span>WhatsApp</span><span>→</span></a>
+      </div>
+    </div>
+    <footer style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:32px 4px 80px;font-size:14px;color:rgba(242,236,227,.5)"><img loading="lazy" src="logo-imperial-decking.webp" alt="Imperial Decking" width="747" height="120" style="height:40px;width:auto"><span>Custom redwood outdoor structures · Sonora, California</span></footer>
+  </section>
+
+  
+    <div id="sticky-cta" style="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:6px;padding:6px;border-radius:999px;background:rgba(23,21,19,.88);backdrop-filter:blur(12px);border:1px solid rgba(242,236,227,.14);box-shadow:0 12px 40px rgba(0,0,0,.4);white-space:nowrap">
+      <span style="padding:0 12px 0 14px;font-size:14px;color:rgba(242,236,227,.75)">(415) 996-5183</span>
+      <a href="sms:+14159965183" style="background:#C2581F;color:#fff;padding:12px 20px;border-radius:999px;font-weight:700;font-size:14px" class="hv hv4">Text a photo</a>
+    </div>
+  
+</div>
+<script>
+// Show the sticky "Text a photo" pill only once the hero button has scrolled away.
+(() => {
+  const pill = document.getElementById('sticky-cta');
+  const hero = document.getElementById('hero-cta');
+  if (!pill || !hero || !('IntersectionObserver' in window)) return;
+  pill.classList.add('is-hidden');
+  new IntersectionObserver(([e]) => pill.classList.toggle('is-hidden', e.isIntersecting)).observe(hero);
+})();
+</script>
+<script>
+(() => {
+  const root = document.documentElement;
+  const anim = root.classList.contains('js-anim');
+
+  // Nav: charcoal backdrop once the page leaves the top
+  const nav = document.getElementById('site-nav');
+  const onScroll = () => nav.classList.toggle('is-scrolled', scrollY > 24);
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Services: mouse drag-to-scroll (touch and trackpads scroll natively)
+  const track = document.getElementById('sv-track');
+  let drag = null, moved = false;
+  track.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    drag = { x: e.clientX, left: track.scrollLeft }; moved = false;
+  });
+  addEventListener('pointermove', e => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x;
+    if (!moved && Math.abs(dx) < 5) return;
+    if (!moved) { moved = true; track.classList.add('is-dragging'); }
+    track.scrollLeft = drag.left - dx;
+  });
+  addEventListener('pointerup', () => {
+    if (!drag) return;
+    drag = null;
+    if (!moved) return;
+    // Keep the drag position, then let snapping settle it smoothly
+    const left = track.scrollLeft;
+    track.classList.remove('is-dragging');
+    track.scrollLeft = left;
+  });
+  track.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+
+  if (!anim) return;
+
+  // Services parallax: each photo drifts against the scroll, by its distance from the track center
+  const pars = [...track.querySelectorAll('.sv-par')];
+  let ticking = false;
+  const parallax = () => {
+    ticking = false;
+    const t = track.getBoundingClientRect(), mid = t.left + t.width / 2;
+    for (const el of pars) {
+      const f = el.parentElement.getBoundingClientRect();
+      const d = Math.max(-1, Math.min(1, (f.left + f.width / 2 - mid) / t.width));
+      el.style.transform = `translate3d(${(-d * f.width * 0.07).toFixed(1)}px,0,0)`;
+    }
+  };
+  const queue = () => { if (!ticking) { ticking = true; requestAnimationFrame(parallax); } };
+  track.addEventListener('scroll', queue, { passive: true });
+  addEventListener('resize', queue);
+  parallax();
+
+  // Count-up for the stats (1991 is a year, so it stays put)
+  const counters = [...document.querySelectorAll('[data-count]')];
+  counters.forEach(el => { el.textContent = '0'; });
+  const countUp = (el, delay) => {
+    const target = +el.dataset.count, dur = 1600;
+    let start = null;
+    const step = now => {
+      if (start === null) start = now + delay;
+      const p = Math.min(1, Math.max(0, (now - start) / dur));
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('en-US');
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  // Reveals: stagger by position among .rv siblings, or an explicit data-delay
+  const io = new IntersectionObserver(entries => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      const el = e.target;
+      io.unobserve(el);
+      let delay = el.dataset.delay;
+      if (delay == null && el.classList.contains('rv')) {
+        const sibs = [...el.parentElement.children].filter(c => c.classList.contains('rv'));
+        delay = Math.min(sibs.indexOf(el), 5) * 110;
+      }
+      delay = delay || 0;
+      el.style.transitionDelay = delay + 'ms';
+      el.classList.add('in');
+      el.querySelectorAll('[data-count]').forEach(c => countUp(c, +delay + 150));
+    }
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.rv, .unmask-wrap').forEach(el => io.observe(el));
+
+  // Headline: split into measured lines, slide each up, then restore the original markup
+  const h1 = document.getElementById('hero-h1');
+  const original = h1.innerHTML;
+  let done = false;
+  const reveal = () => {
+    if (done) return; done = true;
+    const words = [];
+    const wrap = (node, style) => {
+      for (const n of [...node.childNodes]) {
+        if (n.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.append(' '); return; }
+            const w = document.createElement('span');
+            w.textContent = part;
+            if (style) w.setAttribute('style', style);
+            words.push(w); frag.append(w);
+          });
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1) {
+          wrap(n, n.getAttribute('style'));
+          n.replaceWith(...n.childNodes);
+        }
+      }
+    };
+    wrap(h1, null);
+    const lines = [];
+    let top = null;
+    for (const w of words) {
+      if (w.offsetTop !== top) { lines.push([]); top = w.offsetTop; }
+      lines[lines.length - 1].push(w);
+    }
+    h1.textContent = '';
+    lines.forEach((ws, i) => {
+      const line = document.createElement('span'), inner = document.createElement('span');
+      line.className = 'line'; inner.className = 'line-in';
+      inner.style.transitionDelay = (150 + i * 120) + 'ms';
+      ws.forEach((w, j) => { if (j) inner.append(' '); inner.append(w); });
+      line.append(inner); h1.append(line);
+    });
+    h1.classList.add('is-split');
+    requestAnimationFrame(() => requestAnimationFrame(() => h1.classList.add('in')));
+    setTimeout(() => { h1.innerHTML = original; h1.classList.remove('in'); }, 150 + lines.length * 120 + 1100);
+  };
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(reveal);
+  setTimeout(() => { if (!done) { done = true; h1.classList.add('is-split'); } }, 2000);
+})();
+</script>
+</body>
+</html>
