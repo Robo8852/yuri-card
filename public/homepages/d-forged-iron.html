@@ -39,10 +39,9 @@ html{scroll-behavior:smooth}
 .hv4:hover{background:#D66A2E !important;color:#fff !important}
 /* On a single-column phone grid, "span 2" adds a phantom column and causes sideways scroll */
 @media (max-width:600px){[style*="grid-column:span 2"]{grid-column:auto !important}}
-/* Phones: logo + WhatsApp only, so the nav stays on one line */
-@media (max-width:600px){.nav-link{display:none}}
-@media (max-width:600px){.brand img{height:32px !important}}
-@media (max-width:360px){.brand img{height:24px !important}}
+/* Logo as large as the nav allows on one line (logo is 6.225:1). Below 760px: logo + WhatsApp only */
+.brand img{height:min(56px,calc((92vw - 384px) / 6.25)) !important}
+@media (max-width:760px){.nav-link{display:none}.brand img{height:min(48px,calc((100vw - 174px) / 6.25)) !important}}
 /* Stats: 2x2 on phones, one row of 4 from 720px */
 .stats{grid-template-columns:repeat(2,1fr)}
 .stats>div{padding:24px 0 28px 20px !important;border-left:1px solid rgba(242,236,227,.16) !important}
@@ -110,7 +109,7 @@ html{scroll-behavior:smooth}
     <img class="hero-img" src="hero-deck.webp" alt="Redwood pergola over a flagstone patio at golden hour" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,21,19,.6) 0%,rgba(23,21,19,.35) 30%,rgba(23,21,19,.85) 72%,#171513 100%)"></div>
     <nav id="site-nav" style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px clamp(20px,4vw,60px);flex-wrap:wrap">
-      <a href="#" class="brand" aria-label="Imperial Decking, home" style="display:block;line-height:0"><img src="logo-imperial-decking.webp" alt="Imperial Decking · Custom outdoor structures" width="747" height="120" style="height:40px;width:auto"></a>
+      <a href="#" class="brand" aria-label="Imperial Decking, home" style="display:block;line-height:0"><img src="logo-imperial-decking.webp" alt="Imperial Decking · Custom outdoor structures" width="747" height="120" style="height:56px;width:auto"></a>
       <div style="display:flex;align-items:center;gap:24px;font-size:15px;font-weight:500;flex-wrap:wrap">
         <a class="nav-link" href="#how" style="color:rgba(242,236,227,.8)">How I work</a>
         <a class="nav-link" href="#services" style="color:rgba(242,236,227,.8)">Services</a>
@@ -223,7 +222,7 @@ html{scroll-behavior:smooth}
         <a href="https://wa.me/14159965183" style="background:rgba(255,255,255,.16);color:#fff;padding:20px 26px;border-radius:18px;font-weight:700;font-size:17px;display:flex;justify-content:space-between" class="hv hv3"><span>WhatsApp</span><span>→</span></a>
       </div>
     </div>
-    <footer style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:32px 4px 80px;font-size:14px;color:rgba(242,236,227,.5)"><img loading="lazy" src="logo-imperial-decking.webp" alt="Imperial Decking" width="747" height="120" style="height:30px;width:auto"><span>Custom redwood outdoor structures · Sonora, California</span></footer>
+    <footer style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:32px 4px 80px;font-size:14px;color:rgba(242,236,227,.5)"><img loading="lazy" src="logo-imperial-decking.webp" alt="Imperial Decking" width="747" height="120" style="height:40px;width:auto"><span>Custom redwood outdoor structures · Sonora, California</span></footer>
   </section>
 
   
