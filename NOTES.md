@@ -38,10 +38,9 @@ Nothing on this card is invented. Where a fact is missing, the section or field 
   It drives Call, Text, WhatsApp, the photo CTA, the closing Call button and the vCard.
   Single source: `src/lib/site.ts` (`PHONE_E164`, `PHONE_DISPLAY`, `WHATSAPP_URL`), plus
   `public/Imperial-Decking.vcf` and the og image text.
-- **Portrait consent** — the avatar, og image, favicon and apple-touch-icon use photo 13
+- **Portrait consent** — the avatar and og image use photo 13
   (George cutting deck boards). Confirm George agrees to his face being on the card. If not,
-  swap `public/imperial-decking.webp` (avatar), regenerate `public/og-image.png` without the portrait,
-  and regenerate `public/favicon.ico` + `public/apple-touch-icon.png`.
+  swap `public/imperial-decking.webp` (avatar) and regenerate `public/og-image.png` without the portrait.
 - **Photo color** — the polished set's earlier, punchier color pass was overwritten; Leo may
   prefer it. If a new pass lands, recopy into `public/work/`, regenerate `public/work/thumb/`
   (720px max, q78), `public/hero.webp` (photo 01, 2.2:1 crop) and `public/imperial-decking.webp`.
@@ -69,7 +68,7 @@ callback promise, pricing. Those template components were deleted, not hidden.
   WhatsApp link (`wa.me/14159965183?text=...`) under it, then the approved 3-step
   "how to start" copy.
 - og:image is a 1200x630 PNG (`public/og-image.png`) at an absolute URL; favicon and
-  apple-touch-icon were regenerated from the portrait.
+  apple-touch-icon are the house mark from the logo (orange on a charcoal tile), not the portrait.
 
 ### Deployment
 Live at https://imperialdecking.vercel.app (Vercel project `yuri-card`, auto-deploys from `main`
